@@ -1,12 +1,12 @@
 import sys
 from functools import partial
 import ops.annotate
-import ops.firesnakeebov
-from ops.firesnakeebov import Snake
+import ops.firesnake
+from ops.firesnake import Snake
 import ops.io
 import pandas as pd
 
-WELLS, TILES = ops.firesnakeebov.load_well_tile_list(config['WELL_TILE_LIST'],include=config['INCLUDE_WELLS_TILES'])
+WELLS, TILES = ops.firesnake.load_well_tile_list(config['WELL_TILE_LIST'],include=config['INCLUDE_WELLS_TILES'])
 TILES = [str(item).zfill(4) for item in TILES]
 
 # display options for saved .tif files (view in ImageJ)
@@ -17,9 +17,9 @@ LUTS = [getattr(ops.io, config['LUTS'][x]) for x in channels]
 if config['MODE'] == 'paramsearch_segmentation':
     (config,
         nuclei_segmentation_paramspace,
-        cell_segmentation_paramspace) = ops.firesnakeebov.initialize_paramsearch(config)
+        cell_segmentation_paramspace) = ops.firesnake.initialize_paramsearch(config)
 elif config['MODE'] == 'paramsearch_read-calling':
-    config,read_calling_paramspace = ops.firesnakeebov.initialize_paramsearch(config)
+    config,read_calling_paramspace = ops.firesnake.initialize_paramsearch(config)
 elif config['MODE']!='process':
     raise ValueError(f'MODE="{config["MODE"]}" not recognized, use either "process" or "paramsearch"')
 else:
@@ -29,18 +29,18 @@ else:
         raise ValueError('NUCLEUS_AREA cannot be a list of lists for MODE="process"')
 
 # naming convention for input and processed files
-input_files_pheno = partial(ops.firesnakeebov.input_files_nocycles,
+input_files_pheno = partial(ops.firesnake.input_files_nocycles,
                       directory=config['INPUT_DIRECTORY'])
 
-input_files = partial(ops.firesnakeebov.input_files,
+input_files = partial(ops.firesnake.input_files,
                       magnification=config['MAGNIFICATION'],
                       directory=config['INPUT_DIRECTORY'])
 
-processed_input = partial(ops.firesnakeebov.processed_file,
+processed_input = partial(ops.firesnake.processed_file,
                          directory=config['PROCESS_DIRECTORY'],
                          )
 
-processed_output = partial(ops.firesnakeebov.processed_file,
+processed_output = partial(ops.firesnake.processed_file,
                          directory=config['PROCESS_DIRECTORY'],
                          temp_tags=config['TEMP_TAGS'],
                          )

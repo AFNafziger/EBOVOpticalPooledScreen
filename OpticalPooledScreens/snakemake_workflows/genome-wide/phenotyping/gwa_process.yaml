@@ -1,5 +1,10 @@
-PROCESS_DIRECTORY: '/home/rcarlson/gw/ebov/Pheno/GWA/process'
-CORR_FILE: '/home/rcarlson/gw/ebov/Pheno/gwa_illumcorr.tif'
+#PROCESS_DIRECTORY: '/home/rcarlson/gw/ebov/Pheno/GWA/process'
+
+PROCESS_DIRECTORY: '/projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output'
+CORR_FILE: '/projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/DeepLearning/data_samples/GWA/WellA2_Tile-1223.phenotype_corr.tif'
+
+#CORR_FILE: '/home/rcarlson/gw/ebov/Pheno/gwa_illumcorr.tif'
+
 MODE: 'process'
 #MODE: 'paramsearch_segmentation'
 REQUESTED_FILES: []
@@ -17,11 +22,15 @@ REQUESTED_TAGS: [
 TEMP_TAGS: ['cytoplasm.tif'] 
 
 ### INPUT TO ANALYSIS
-INPUT_DIRECTORY: '/home/rcarlson/gw/ebov/Pheno/GWA'
-WELL_TILE_LIST: '/home/rcarlson/gw/ebov/Pheno/well_tile_list_full.csv'
+INPUT_DIRECTORY: '/projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/DeepLearning/data_samples/GWA'
+WELL_TILE_LIST: '/projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/DeepLearning/data_samples/well_tile_list_full.csv'
 INCLUDE_WELLS_TILES: 'all' # either 'all' or list of [well,tile] pair lists. If running in either paramsearch modes, sites must be restricted to a subset
 MAGNIFICATION: '20X'
 PHENOTYPE_CYCLE: ['pheno0.tif','pheno1.tif']
+
+LUTS:
+  DAPI: GRAY
+  CELLS: GREEN
 
 ### ANALYSIS PARAMETERS
 SEGMENT_METHOD: 'cell_2019_select_channels'

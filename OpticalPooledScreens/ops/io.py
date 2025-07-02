@@ -12,7 +12,7 @@ import ops.constants
 from .external.tifffile_new import imread
 # currently needed to save ImageJ-compatible hyperstacks
 from .external.tifffile_old import imsave
-from .paper.cell_idr import QuitError
+# from .paper.cell_idr import QuitError
 
 imagej_description = ''.join(['ImageJ=1.49v\nimages=%d\nchannels=%d\nslices=%d',
                               '\nframes=%d\nhyperstack=true\nmode=composite',

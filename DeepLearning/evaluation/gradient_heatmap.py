@@ -1,3 +1,7 @@
+#Atticus - 2023-10-30
+#generates a gradient-based heatmap for a given cell image using the deep learning model.
+#shows which parts of an image influence the model’s classification the most.
+
 import sys
 import pathlib
 sys.path.append(pathlib.Path(__file__).parents[1].__str__())
