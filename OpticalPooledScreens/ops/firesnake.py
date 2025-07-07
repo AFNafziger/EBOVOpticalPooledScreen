@@ -2957,7 +2957,7 @@ def processed_file(suffix, directory='process', magnification='10X', temp_tags=t
 def input_files(suffix, cycles, directory='input', magnification='10X'):
     from snakemake.io import expand
     pattern = (f'{directory}/{{cycle}}/'
-               f'Well{{{{well}}}}_Site-{{{{tile}}}}.{{cycle}}.{suffix}')
+               f'Well{{{{well}}}}_Tile-{{{{tile}}}}.{{cycle}}.{suffix}')
     return expand(pattern, cycle=cycles)
 
 def input_files_pheno_cycles(suffix, cycles, directory='input', magnification='10X'):
@@ -2968,7 +2968,7 @@ def input_files_pheno_cycles(suffix, cycles, directory='input', magnification='1
 
 def input_files_nocycles(suffix, directory='input', magnification='10X'):
     from snakemake.io import expand
-    pattern = (f'{directory}/Well{{well}}_Site-{{tile}}.{suffix}')
+    pattern = (f'{directory}/Well{{well}}_Tile-{{tile}}.{suffix}')
     return pattern
 #WellA1_PointA1_00
 def input_files_nocycles_alt(suffix, directory='input', magnification='10X'):
