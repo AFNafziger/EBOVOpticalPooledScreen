@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+align_phenotype         1
+all                     1
+call_min_pheno          1
+find_cytoplasm          1
+illum_corr              1
+pheno_ch0               1
+pheno_ch1               1
+pheno_ch2               1
+pheno_ch3               1
+pheno_ch4               1
+pheno_ch5               1
+pheno_morphology        1
+segment                 1
+total                  13
+
+Select jobs to execute...
+
+[Mon Jul  7 11:30:58 2025]
+rule align_phenotype:
+    input: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/DeepLearning/data_samples/GWA/WellA2_Tile-1223.cell.tif, /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/DeepLearning/data_samples/GWA/WellA2_Tile-1223.phenotype_corr.tif
+    output: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output/WellA2_Tile-1223.phenotype_aligned.tif
+    jobid: 3
+    reason: Missing output files: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output/WellA2_Tile-1223.phenotype_aligned.tif
+    wildcards: well=A2, tile=1223
+    resources: tmpdir=/scratch
+
+[Mon Jul  7 11:31:05 2025]
+Finished job 3.
+1 of 13 steps (8%) done
+Select jobs to execute...
+
+[Mon Jul  7 11:31:05 2025]
+rule illum_corr:
+    input: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output/WellA2_Tile-1223.phenotype_aligned.tif
+    output: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output/WellA2_Tile-1223.phenotype_corr.tif
+    jobid: 2
+    reason: Missing output files: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output/WellA2_Tile-1223.phenotype_corr.tif; Input files updated by another job: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output/WellA2_Tile-1223.phenotype_aligned.tif
+    wildcards: well=A2, tile=1223
+    resources: tmpdir=/scratch
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-07T113052.618358.snakemake.log

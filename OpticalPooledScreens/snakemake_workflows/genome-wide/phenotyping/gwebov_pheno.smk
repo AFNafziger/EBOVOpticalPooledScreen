@@ -60,12 +60,32 @@ rule align_phenotype:
     output:
         processed_output('phenotype_aligned.tif')
     run:
-        Snake.align_by_channel(output=output, data_1=input[0], data_2=input[1],
-        	data_1_keepchannels = [0,1,2,3,4],
-            data_2_keepchannels = [1],
-            channel_index1=0,channel_index2=0,
-            autoscale=config['AUTOSCALE_PHENOTYPE'])
-            #display_ranges=DISPLAY_RANGES, luts=LUTS)
+        import tifffile
+        arr1 = tifffile.imread(input[0])
+        arr2 = tifffile.imread(input[1])
+
+        # Determine keepchannels for data_1 (.cell.tif)
+        if arr1.ndim == 2 or arr1.shape[0] == 1:
+            data_1_keepchannels = [0]
+        else:
+            data_1_keepchannels = list(range(arr1.shape[0]))
+
+        # Determine keepchannels for data_2 (.phenotype_corr.tif)
+        if arr2.ndim == 2 or arr2.shape[0] == 1:
+            data_2_keepchannels = [0]
+        else:
+            data_2_keepchannels = list(range(arr2.shape[0]))
+
+        Snake.align_by_channel(
+            output=output,
+            data_1=input[0],
+            data_2=input[1],
+            data_1_keepchannels=data_1_keepchannels,
+            data_2_keepchannels=data_2_keepchannels,
+            channel_index1=0,
+            channel_index2=0,
+            autoscale=config['AUTOSCALE_PHENOTYPE']
+        )
 
 rule illum_corr:
     input:

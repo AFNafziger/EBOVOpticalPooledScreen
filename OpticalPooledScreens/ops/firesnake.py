@@ -155,11 +155,15 @@ class Snake():
         if data_2.ndim == 2:
             data_2 = data_2[np.newaxis,:]
 
+        # Ensure channel_index2 is valid for single-channel images
+        if data_2.shape[0] == 1:
+            channel_index2 = 0
+
         images = data_1[channel_index1], data_2[channel_index2]
         _, offset = ops.process.Align.calculate_offsets(images, upsample_factor=upsample_factor)
         offsets = [offset] * len(data_2)
         aligned = ops.process.Align.apply_offsets(data_2, offsets)
-
+        
         if (data_1_keepchannels == None) & (data_2_keepchannels != None):
             aligned = aligned[data_2_keepchannels,:]
             if aligned.ndim == 2:
@@ -173,6 +177,7 @@ class Snake():
 
         else:
             data_1 =data_1[data_1_keepchannels,:]
+            
             aligned = aligned[data_2_keepchannels,:]
             if aligned.ndim == 2:
                 aligned = aligned[np.newaxis,:]
