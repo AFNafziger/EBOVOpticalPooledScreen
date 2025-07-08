@@ -1,0 +1,5 @@
+ModuleNotFoundError in file /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwebov_pheno.smk, line 3:
+No module named 'ops.paper'
+  File "/projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwebov_pheno.smk", line 3, in <module>
+  File "/projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/ops/annotate.py", line 12, in <module>
+  File "/projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/ops/io.py", line 15, in <module>
