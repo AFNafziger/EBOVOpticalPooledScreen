@@ -1,0 +1,8 @@
+Building DAG of jobs...
+MissingInputException in rule align_phenotype in file /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwebov_pheno.smk, line 56:
+Missing input files for rule align_phenotype:
+    output: /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/OpticalPooledScreens/snakemake_workflows/genome-wide/phenotyping/gwa_test_output/Wella2_Tile-1224.phenotype_aligned.tif
+    wildcards: well=a2, tile=1224
+    affected files:
+        /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/DeepLearning/data_samples/GWA/Wella2_Tile-1224.phenotype_corr.tif
+        /projectnb/davey-lab/EBOV_Optical_Pooled_Screen/github_code/EBOVOpticalPooledScreen/DeepLearning/data_samples/GWA/Wella2_Tile-1224.cell.tif
